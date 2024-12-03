@@ -168,3 +168,15 @@ const totalAge = people.reduce((sum, person) => sum + Number(person.age), 0);
  */
 
 console.log(totalAge)
+
+// Calculate the Average Age - Using the total from Step 4, calculate the avergage age
+
+// Step 5: Calculate the average age
+
+const averageAge = totalAge / people.length;
+
+/** Explanation :
+ *   - Divide the total age by the number of peoplein the array
+ */
+
+console.log(averageAge);
