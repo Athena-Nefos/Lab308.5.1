@@ -135,3 +135,23 @@ const filteredByAge = people.filter(person => Number(person.age) <= 50);
  */
 
 console.log(filteredByAge)
+
+// Map the Array :  Change the occupation key to job. Increment the age value by 1.
+
+// Step 3: Map method to change keys and increment age.
+
+const mappedArray = people.map(person => {
+    return {
+        id: person.id,
+        name: person.name,
+        job: person.occupation, //Rename 'occupation' to 'job'
+        age: (Number(person.age) + 1).toString()  // Increment age by 1 and convert back to string.
+    };
+});
+
+/** Explanation:
+ *   - 'map()' creates a new array by transforming each element based on the callback function.
+ *   - We renamed 'occupation' to 'job' and added 1 to the 'age'.
+ */
+
+console.log(mappedArray);
