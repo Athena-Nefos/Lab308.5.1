@@ -122,3 +122,16 @@ const sortedByAge = people.slice().sort((a, b) => Number(a.age) - Number(b.age))
  */
 
 console.log(sortedByAge)
+
+// Filter the Array to remove entries greater than 50 (age > 50)
+
+//Step 2: Filter out people with age greater than 50
+
+const filteredByAge = people.filter(person => Number(person.age) <= 50);
+
+/** Explanation :
+ *   - 'filter()' takes a callback function that checks a condition.
+ *   - we include only the object where 'age' (as a Number) is less than or equal to 50.
+ */
+
+console.log(filteredByAge)
