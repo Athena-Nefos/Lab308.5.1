@@ -155,3 +155,16 @@ const mappedArray = people.map(person => {
  */
 
 console.log(mappedArray);
+
+//Calculate the sum of the Ages using .reduce - We'll calculate the sum of all the age values (converted to numbers)
+
+// Step 4: Calculate the sum of ages
+
+const totalAge = people.reduce((sum, person) => sum + Number(person.age), 0);
+
+/** Explanation :
+ *   - 'reduce()' takes callback and a initial value (here, 0).
+ *   - The callback adds the current person's age (as a number) to the running total.
+ */
+
+console.log(totalAge)
