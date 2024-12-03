@@ -43,9 +43,10 @@ for (let i = 0; i < nameStr.length; i++) {
 // Step 5: After the loop finishes, 'longest' will contain the longest string.
 console.log(longest); // Output: Shobana
 
-//Take an array of strings, and a number and return an array of the strings that are longer than the given number.
 
-const stringsLongerThan(['Good', 'Morning', 'Evening', 'a', 'to','Afternoon'], 2)
+// Take an array of strings, and a number and return an array of the strings that are longer than the given number.
+
+stringsLongerThan(['Good', 'Morning', 'Evening', 'a', 'to','Afternoon'], 2)
 
 // Function to return strings longer than a given number
 
@@ -59,13 +60,13 @@ function stringsLongerThan(stringsArray, minLength) {
 
     for (let i = 0; i < stringsArray.length; i++) {
 
-    // Step 3: check if the current string's length is greater than the given number (minLength).
+    // Step 3: Check if the current string's length is greater than the given number (minLength).
 
-    if (stringAray[i].length > minLength){
+    if (stringsArray[i].length > minLength){
 
     // Step 4: If true, add the string to the result array.
 
-        result.push(stringArray[i]);
+        result.push(stringsArray[i]);
     }
     }
     // Step 5: Return array containing the strings that meet the condition.
@@ -76,3 +77,48 @@ function stringsLongerThan(stringsArray, minLength) {
 const strings = ['Good', 'Morning', 'Evening', 'Afternoon', 'a', 'to'];
 const result = stringsLongerThan(strings, 2);
 console.log(result); //Output : ["Good", "Morning", "Evening", "Afternoon"]
+
+// Take a number n, and print every number between 1 and n without using loops.  Use recursion.
+
+function printNumbers(n, current = 1) {
+    // Step 1: Base Case - If Current exceeds n, stop the recursion.
+    // This prevents infinite recursion and stops when we have printed all numbersup to n.
+    if (current > n) {
+        return;  // End the recursion when current is greater than n.
+    }
+
+    // Step 2: Print the current number.
+    //The function prints the current number on the console.
+
+    console.log(current);
+
+    //Step 3: Recursive Case - Call the function again with the next number.
+    //The function calls itself with the currentnumber incremented by 1, printing the next number.
+    printNumbers(n, current + 1);
+}
+
+// Example Usage , also necessary to provide the value for n
+    printNumbers(7);
+
+// Pt. 2 Thinking Methodically
+
+/** When functions are built into objects, like Arrays, they are referred to as “methods” of those objects. Many methods, including Array methods, require “callback functions” to determine their behavior.
+For the tasks below, use the following data to test your work: */
+
+const people = [
+    { id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+]; 
+
+// Sort the Array by Age _ We want to sort the array by the age property (ascending order).  Since age is a string, we will need to convert it to a number for accurate sorting. 
+
+// Step 1: Sort the array by age
+
+const sortedByAge = people.slice().sort((a, b) => Number(a.age) - Number(b.age));
+
+/** Explanation :
+ *   - 'slice()' creates a shallow copy of the array soo we don't modify the original.
+ *   - 'sort' takes a callback function with two elements 'a' and 'b'.
+ *   - We compare their 'age' values as numbers (using Number() to convert from a string to a number) and sort them in ascending order.
+ */
+
+console.log(sortedByAge)
