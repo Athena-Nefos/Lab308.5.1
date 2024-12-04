@@ -180,3 +180,69 @@ const averageAge = totalAge / people.length;
  */
 
 console.log(averageAge);
+
+// Pt. 3 Thinking Critically
+
+/** Step 1 Understand the Passing By Value vs. Reference :
+ * In JavaScript:
+ * Primitive values (like numbers, strings, booleans) are passed by value: a copy of the value is passed into functions.
+ * 
+ * Objects (including arrays and Date objects) are passed by reference: functions can directly modify the original object unless explicitly copied.
+ * 
+ * This distinction impacts how we work with objects in functions, especially whenwe want to modify an object or make a copoy of it.
+ */
+
+// Step 2: Write a function to Increment age in the Original Object
+// Objective: Modify the age property of the input object and add an updated_at timestamp.
+
+function incrementAge(obj) {
+    // step 1: Check if the object has an 'age' property.
+    if (!obj.hasOwnProperty('age')) {
+        // If no 'age' property, initialize it to 0.
+        obj.age = 0;
+    }
+
+// step 2: Increment the 'age' property.
+    obj.age++;
+
+// step 3: Add or update the 'updated_at' property with the current date.
+    obj.updated_at = new Date();
+    
+// step 4: Return the modified object.
+    return obj;    
+}
+
+let person = {name: 'Alice'};
+console.log(incrementAge(person));
+
+// Step 3: Write a function to copy the object, increment age in the copy, and add/update feilds
+
+/** Objective: Make a copy of the object, increment the age in the copy, and modify updated_at. */
+
+function incrementAgeCopy(obj) {
+    //step 1: Create a shallow copy of the object using the spread operator.
+    const copy = {...obj };
+
+    //step 2: Check if the copy has an 'age' property.
+    if (!copy.hasOwnProperty('age')) {
+       //if no 'age' property, initialize it to 0.
+       copy.age = 0;  
+    }
+
+    // step 3: Increment the 'age' property in the copy.
+    copy.age++;
+
+    // step 4: Add or update the 'updated_at' property with the current date.
+    copy.updated_at = new Date();
+
+    // step 5: Return the modified copy.
+    return copy;
+}
+
+// Example usage:
+let originalPerson = { name: "Bob", age: 30 };
+let modifiedCopy = incrementAgeCopy(originalPerson);
+
+console.log(originalPerson);
+
+console.log(modifiedCopy);
